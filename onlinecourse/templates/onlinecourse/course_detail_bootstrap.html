@@ -59,6 +59,7 @@
     <div class="collapse" id="collapseExample">
         <div class="card card-body">
             <div>
+            <form method="post" action="{% url 'onlinecourse:submit' course.id %}">
                 {% for question in course.question_set.all %}
                 {{ question.question_text }}
                 <div>
@@ -71,10 +72,10 @@
                 </div>
                 {% endfor %}
                 <!-- Agregar el formulario dentro del div del examen -->
-                <form method="post">
+                
                     {% csrf_token %}
                     <input type="submit" value="Submit">
-                </form>
+            </form>
             </div>
         </div>
     </div>
